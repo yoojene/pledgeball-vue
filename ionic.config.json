@@ -1,0 +1,7 @@
+{
+  "name": "PledgeBall",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
