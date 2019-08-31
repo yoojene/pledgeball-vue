@@ -8,37 +8,21 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-list class="ion-padding-top ion-padding-bottom">
-    <!-- <div v-for="pledge in this.pledges"> -->
-    <!-- <ion-item-group>
-      <ion-item  v-for="pledge in this.pledges">
-        <ion-label class="ion-text-wrap">{{pledge.pledgeName}}</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
-      </ion-item>
-      <ion-item v-for="pledge in this.pledges" v-bind:href="pledge.pledgeUrls">
-        <ion-label class="ion-text-wrap">{{pledge.pledgeName}}</ion-label>
-      </ion-item> 
-    </ion-item-group> -->
-    
+  <ion-list class="ion-padding-top ion-padding-bottom">    
     <ion-card v-for="pledge in this.pledges" v-bind:key="pledge.pledgeId">
     <ion-card-header>
        <ion-ripple-effect></ion-ripple-effect>
       <ion-item lines="none">
-      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
       <ion-card-title>{{pledge.pledgeName}}</ion-card-title>
      
         <ion-checkbox slot="start" v-on:ionChange="togglePledge(pledge, $event)"> </ion-checkbox>
       </ion-item>
     </ion-card-header>
-
-      
     <ion-card-content>
-      <!-- <ion-item v-if="pledge.pledgeUrls" lines="none" @click="viewUrls(pledge.pledgeUrls)">
-          {{pledge.pledgeUrls}}
-      </ion-item> -->
       <ion-button v-if="pledge.pledgeUrls" expand="block" color="secondary" @click="viewUrls(pledge.pledgeUrls)">
-          <ion-ripple-effect></ion-ripple-effect>
-        More Info</ion-button>
+      <ion-ripple-effect></ion-ripple-effect>
+        More Info
+      </ion-button>
     </ion-card-content>
   </ion-card>
    

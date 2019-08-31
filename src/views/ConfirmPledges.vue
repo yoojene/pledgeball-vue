@@ -20,7 +20,7 @@
     </ion-fab>
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button>
-        <ion-icon name="stats" @click="goToResults"></ion-icon>     
+        <ion-icon name="arrow-forward" @click="goToResults"></ion-icon>     
       </ion-fab-button>
     </ion-fab>
 </ion-content>
@@ -40,15 +40,12 @@ export default {
     }
   },
   async created() {
-
     this.pledges = await storage.get('selectedPledges');
-
   },
   methods: {
 
     goToResults() {
       this.$router.push('/results');
-
     },
    
     returnToPledges() {
@@ -56,10 +53,8 @@ export default {
 
     },
    
-
   }
 
-  
 }
 </script>
 <style>
