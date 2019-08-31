@@ -6,6 +6,7 @@ branches:
     - master
 before_script:
   - npm install -g @capacitor/cli @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-service babel-eslint eslint eslint-plugin-vue vue-template-compiler
+  
 script:
   - npm install
   - npm run build
