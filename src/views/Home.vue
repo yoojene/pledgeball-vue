@@ -20,7 +20,7 @@
 
   <ion-app>
     <ion-content>
-    <ion-slides pager="true" :options="slideOpts">
+    <ion-slides class="intro-slides" pager="true" :options="slideOpts">
       <ion-slide>
         <div>
         <div>
@@ -82,5 +82,7 @@ export default {
  .pledgeball__one { height: 100%; }
  .underline { text-decoration: underline; }
  .swiper-pagination{ position: relative; }
- .ios .slides-ios{ top: 20%; }
+ /* .ios .slides-ios{ top: 20%; } */
+ .intro-slides {top: 20%;}
+ .swiper-container-horizontal>.swiper-pagination-bullets{bottom: 0px;}
 </style>
