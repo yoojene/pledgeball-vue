@@ -31,8 +31,8 @@ export default {
     async share() {
       const shareRet = await Share.share({
         title: "I've just made a pledge at #PledgeBall",
-        text: 'Make yours at',
-        url: 'https://www.pledgeball.org/',
+        text: "I've just made a pledge at #PledgeBall.  Make yours at ",
+        url: 'htps://www.pledgeball.org/',
         dialogTitle: 'Pledge For the Planet'
       });
     }
