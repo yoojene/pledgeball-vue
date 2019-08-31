@@ -6,7 +6,8 @@
 
 <style>
 :root{
-  --ion-color-primary: #16c2b3
+  --ion-color-primary: #16c2b3;
+  --ion-color-secondary: #EA05F2;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

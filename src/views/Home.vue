@@ -66,7 +66,7 @@ export default {
   name: 'home',  
   methods: {
     goToPledges() {
-      this.$router.push('/pledges');
+      this.$router.push('/selectpledges');
     }
   }, 
   props: {
@@ -82,7 +82,6 @@ export default {
  .pledgeball__one { height: 100%; }
  .underline { text-decoration: underline; }
  .swiper-pagination{ position: relative; }
- /* .ios .slides-ios{ top: 20%; } */
  .intro-slides {top: 20%;}
  .swiper-container-horizontal>.swiper-pagination-bullets{bottom: 0px;}
 </style>
