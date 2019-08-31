@@ -24,7 +24,7 @@
       <ion-slide>
         <div>
         <div>
-        <img src="../assets/PPP4_small.webp">
+        <img src="../assets/pledgeball_title.jpg">
         </div>
        <h1 class="underline">Welcome to PledgeBall</h1>
       </div> 
@@ -32,7 +32,7 @@
       <ion-slide>
       <div class="ion-padding-top ion-padding-start ion-padding-end">
         <div>
-        <img src="../assets/pledges.webp">
+        <img src="../assets/footballpitch.jpg">
         <h1>pledge / play / protect</h1>
         <p>
           Pledgeball is a way to encourage millions of people in the football and sporting communities to make a small, easy change to their lifestyle and so, collectively, have a big impact on our planet.
