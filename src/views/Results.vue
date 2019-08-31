@@ -30,10 +30,10 @@ export default {
   methods: {
     async share() {
       const shareRet = await Share.share({
-        title: 'See cool stuff',
-        text: 'Really awesome thing you need to see right meow',
-        url: 'http://ionicframework.com/',
-        dialogTitle: 'Share with buddies'
+        title: "I've just made a pledge at #PledgeBall",
+        text: 'Make yours at',
+        url: 'https://www.pledgeball.org/',
+        dialogTitle: 'Pledge For the Planet'
       });
     }
   }
