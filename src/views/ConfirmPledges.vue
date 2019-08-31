@@ -20,7 +20,7 @@
     </ion-fab>
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button>
-        <ion-icon name="arrow-forward" @click="goToResults"></ion-icon>     
+        <ion-icon name="stats" @click="goToResults"></ion-icon>     
       </ion-fab-button>
     </ion-fab>
 </ion-content>

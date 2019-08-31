@@ -20,7 +20,7 @@
       </ion-item> 
     </ion-item-group> -->
     
-    <ion-card v-for="pledge in this.pledges">
+    <ion-card v-for="pledge in this.pledges" v-bind:key="pledge.pledgeId">
     <ion-card-header>
        <ion-ripple-effect></ion-ripple-effect>
       <ion-item lines="none">
@@ -44,7 +44,7 @@
    
   </ion-list>
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button>
+      <ion-fab-button :disabled="this.selectedPledges.length === 0">
         <ion-icon name="arrow-forward" @click="goToResults"></ion-icon>     
       </ion-fab-button>
       
@@ -70,15 +70,16 @@ export default {
       selectedPledges: []
     }
   },
+  async created() {
 
+   // clear storage
+    await storage.remove('selectedPledges');
+
+  },
   methods: {
 
     togglePledge(pledge, ev) {
-      console.log(pledge);
-      console.log(ev.detail.checked);
-      console.log(pledge.pledgeId);
-      console.log(pledge.pledgeName);
-
+     
       if (ev.detail.checked) {
         this.selectedPledges.push(pledge)
       }
@@ -87,10 +88,6 @@ export default {
         this.selectedPledges.pop(pledge)
       }
 
-      console.log(this.selectedPledges)
-
-
-      // storage.set()
     
     },
 

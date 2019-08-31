@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     async share() {
-      const shareRet = await Share.share({
+      await Share.share({
         title: "I've just made a pledge at #PledgeBall",
         text: "I've just made a pledge at #PledgeBall.  Make yours at ",
         url: 'htps://www.pledgeball.org/',
