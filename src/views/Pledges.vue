@@ -3,7 +3,7 @@
   <ion-header>
     <ion-toolbar color="primary">
     <ion-title>
-      Select your pledges
+      Select your pledges {{user}}
     </ion-title>
     </ion-toolbar>
   </ion-header>

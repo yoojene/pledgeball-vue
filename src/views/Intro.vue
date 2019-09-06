@@ -52,7 +52,7 @@
            Ready to get started?  
         </h4>
         <div>
-        <ion-button expand="block" @click="goToPledges">Let's go!</ion-button>
+        <ion-button expand="block" @click="goToLogin">Let's go!</ion-button>
       </div>
       </div>
       </ion-slide>
@@ -63,10 +63,11 @@
 
 <script>
 export default {
-  name: 'home',  
+  name: 'intro',  
   methods: {
-    goToPledges() {
-      this.$router.push('/pledges');
+    goToLogin() {
+      console.log('helllooooo')
+      this.$router.push('/login');
     }
   }, 
   props: {
