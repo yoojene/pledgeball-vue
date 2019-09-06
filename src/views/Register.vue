@@ -45,6 +45,14 @@ import firebase from 'firebase';
 
 export default {
   name: 'Register',
+  data() {
+    return {
+    name: '',
+    email: '',
+    password: '',
+    confpassword:''  
+    }
+  },
   props: {
     title: { type: String, default: 'Register' },
   },
