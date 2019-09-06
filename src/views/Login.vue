@@ -56,7 +56,7 @@ export default {
       try {
         const user = await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         console.log(user);
-        this.$router.push('/pledges');
+        this.$router.push('/selectpledges');
       } catch (err) {
         console.log(this.password)
         console.log(this.email)
@@ -73,7 +73,7 @@ export default {
     doSkip() {
       // TODO Create anon user
 
-      this.$router.push('/pledges');
+      this.$router.push('/selectpledges');
 
     }
   },
