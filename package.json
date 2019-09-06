@@ -16,6 +16,8 @@
     "core-js": "^2.6.5",
     "firebase": "6.6.0",
     "ionicons": "4.6.2",
+    "localforage": "^1.7.3",
+    "localforage-cordovasqlitedriver": "^1.8.0",
     "vue": "^2.6.10",
     "vue-chartjs": "3.4.2",
     "vue-router": "^3.0.3",
