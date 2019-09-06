@@ -8,6 +8,18 @@ import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase';
 // import { config } from '@ionic/core';
 
+import { addIcons } from "ionicons";
+import { home, logoGoogle, logoFacebook, mail } from "ionicons/icons";
+
+addIcons({
+  "logo-google": logoGoogle,
+  "logo-facebook": logoFacebook,
+  "ios-home": home.ios,
+  "md-home": home.md,
+  "ios-mail": mail.ios,
+  "md-mail": mail.md,
+});
+
 export const firebaseConfig = {
   apiKey: "AIzaSyAjXxGN2ipPe7dOUBhoB-38SUpLWPncv0M",
   authDomain: "AUTH_DOMAIN_HERE",

@@ -24,16 +24,44 @@ Login
 <ion-list class="ion-padding">
   <ion-item>
     <ion-label position="floating">Email Address</ion-label>
-    <ion-input type="email" :value="email" @ionInput="email = $event.target.value"> </ion-input>
+    <ion-input required type="email" :value="email" @ionInput="email = $event.target.value"> </ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" :value="password" @ionInput="password = $event.target.value"></ion-input>
+    <ion-input required type="password" :value="password" @ionInput="password = $event.target.value"></ion-input>
   </ion-item>
-  <ion-button @click="doLogin">Login</ion-button>
-  <ion-button @click="doRegister">Register</ion-button>
-  <ion-button @click="doSkip">Skip</ion-button>
-    
+  <div class="ion-padding-top">
+  <ion-button expand="block" @click="doLogin">Login</ion-button>
+  </div>
+  <div class="ion-padding-top ion-padding-bottom ion-text-center">
+    <ion-label>Don't have an account? Sign Up</ion-label>
+  </div>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+  <ion-button expand="large" @click="doRegisterEmail">
+    <ion-icon name="mail"></ion-icon>
+  </ion-button>
+  <ion-button expand="large" @click="doRegisterFacebook" color="facebook">
+    <ion-icon name="logo-facebook"></ion-icon>
+    <!-- Facebook -->
+  </ion-button>
+  <ion-button expand="large" @click="doRegisterGoogle" color="google">
+    <ion-icon name="logo-google"></ion-icon>
+    <!-- Google -->
+  </ion-button>
+    </ion-row>
+  </ion-grid>
+  <div class="ion-padding-top ion-padding-bottom ion-text-center">
+    <ion-label>Or continue as a guest</ion-label>
+  </div>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+    <ion-button @click="doSkip">
+    Skip
+  </ion-button>
+    </ion-row>
+  </ion-grid>
+  
 </ion-list>
     
 </ion-content>
@@ -63,7 +91,7 @@ export default {
         alert(err.message)
       }
     },
-    doRegister() {
+    doRegisterEmail() {
       return this.$ionic.modalController.create({
         component: Register,
         
@@ -83,3 +111,6 @@ export default {
   
 }
 </script>
+<style>
+
+</style>

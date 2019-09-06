@@ -33,8 +33,12 @@
     <ion-input type="password" :value="confpassword" @ionInput="confpassword = $event.target.value"></ion-input>
   </ion-item>
 
-  <ion-button @click="doRegister">Register</ion-button>
-    
+  
+   <ion-grid>
+    <ion-row class="ion-justify-content-center">
+    <ion-button expand="large" @click="doRegister">Register</ion-button>
+    </ion-row>
+  </ion-grid> 
 </ion-list>
     
 </ion-content>
