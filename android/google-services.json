@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "274541014837",
+    "firebase_url": "https://pledgeball-org.firebaseio.com",
+    "project_id": "pledgeball-org",
+    "storage_bucket": "pledgeball-org.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274541014837:android:e6a104e6afec303f8fa67c",
+        "android_client_info": {
+          "package_name": "io.genox.pledgeball"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274541014837-3niada21tl6ckgc680q889h0gv0ci6mm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBysln_-TMnbMDwU0NCGnmc78bPVdpy3BU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274541014837-3niada21tl6ckgc680q889h0gv0ci6mm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

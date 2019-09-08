@@ -3,7 +3,7 @@
   <ion-header>
     <ion-toolbar color="primary">
     <ion-title>
-Login
+      Login
     </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -17,8 +17,7 @@ Login
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button>
         <ion-icon name="arrow-forward" @click="goToResults"></ion-icon>     
-      </ion-fab-button>
-      
+      </ion-fab-button> 
     </ion-fab> -->
 
 <ion-list class="ion-padding">
@@ -70,15 +69,30 @@ Login
 <script>
 import firebase from 'firebase';
 import Register from './Register';
+// import { User } from 'firebase/app'
+import { cfaSignIn } from 'capacitor-firebase-auth';
+import { Plugins } from '@capacitor/core';
+
+const { Device } = Plugins;
+
+
 
 export default {
   name: 'Login',
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      platform: ''
     }
   },
+  async created() {
+    
+      const info = await Device.getInfo();
+
+      this.platform = info.platform;
+  },
+
   methods: {
     async doLogin() {
       try {
@@ -97,6 +111,28 @@ export default {
         
       }).then(m => m.present())
       
+    },
+    doRegisterGoogle() {
+      if (this.platform !== 'web') {
+       cfaSignIn('google.com').subscribe(
+        (user) => {
+          console.log(user.displayName)
+          }
+      )
+      } else {
+        console.log('web')
+      }     
+    },
+    doRegisterFacebook() {
+      if (this.platform !== 'web') {
+       cfaSignIn('facebook.com').subscribe(
+        (user) => {
+          console.log(user.displayName)
+          }
+      )
+      } else {
+        console.log('web')
+      }     
     },
     doSkip() {
       // TODO Create anon user

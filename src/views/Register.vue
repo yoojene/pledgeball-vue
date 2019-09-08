@@ -51,10 +51,10 @@ export default {
   name: 'Register',
   data() {
     return {
-    name: '',
-    email: '',
-    password: '',
-    confpassword:''  
+      name: '',
+      email: '',
+      password: '',
+      confpassword: ''  
     }
   },
   props: {
@@ -77,11 +77,6 @@ export default {
     },
     doDismiss() {
       this.$ionic.modalController.dismiss(true)
-    }
-  },
-  data() {
-    return {
-      content: 'Content',
     }
   },
 }
