@@ -105,11 +105,17 @@ export default {
         alert(err.message)
       }
     },
-    doRegisterEmail() {
-      return this.$ionic.modalController.create({
+    async doRegisterEmail() {
+      const modal = await this.$ionic.modalController.create({
         component: Register,
         
-      }).then(m => m.present())
+      });
+      await modal.present();
+      let { data: { success, loading}} = await modal.onDidDismiss()
+       if (success) {
+        loading.dismiss()
+        this.$router.push('/selectpledges');
+       }
       
     },
     doRegisterGoogle() {

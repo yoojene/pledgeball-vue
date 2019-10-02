@@ -5,6 +5,11 @@
     <ion-title>
       Select your pledges
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     </ion-toolbar>
   </ion-header>
   

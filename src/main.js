@@ -9,7 +9,7 @@ import firebase from 'firebase';
 // import { config } from '@ionic/core';
 
 import { addIcons } from "ionicons";
-import { home, logoGoogle, logoFacebook, mail } from "ionicons/icons";
+import { home, logoGoogle, logoFacebook, mail, person } from "ionicons/icons";
 
 addIcons({
   "logo-google": logoGoogle,
@@ -18,6 +18,8 @@ addIcons({
   "md-home": home.md,
   "ios-mail": mail.ios,
   "md-mail": mail.md,
+  "ios-person": person.ios,
+  "md-person": person.md,
 });
 
 export const firebaseConfig = {
