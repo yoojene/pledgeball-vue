@@ -39,7 +39,13 @@
     <ion-button expand="large" @click="doRegister">Register</ion-button>
     </ion-row>
   </ion-grid> 
+
+  <div class="error" v-if={error}>
+    {{this.error}}
+  </div>
 </ion-list>
+
+
     
 </ion-content>
   
@@ -57,7 +63,8 @@ export default {
         email: '',
         password: '',
         confpassword: '' 
-      }
+      }, 
+      error: ''
     }
   },
   props: {
@@ -65,9 +72,8 @@ export default {
   },
   methods: {
     async doRegister() {
+      const loading = await this.doShowLoading();
       try {
-
-        const loading = await this.doShowLoading();
         loading.present();
         const user = await firebase.auth().createUserWithEmailAndPassword(this.regInfo.email, this.regInfo.password)
         
@@ -81,8 +87,11 @@ export default {
          this.$ionic.modalController.dismiss({success: true, regInfo: this.regInfo, fireUser: user, loading: loading})
       } catch (err) {
         
-        
-        alert(err.message);  
+        loading.dismiss();
+        this.error = err.message;
+        setTimeout(() => {
+          this.error = '';
+        }, 2000);
       }
     },
     doDismiss() {
@@ -100,3 +109,6 @@ export default {
   },
 }
 </script>
+<style>
+.error { color: red; text-align: center}
+</style>
