@@ -69,7 +69,6 @@
 <script>
 import firebase from 'firebase';
 import Register from './Register';
-// import { User } from 'firebase/app'
 import { cfaSignIn } from 'capacitor-firebase-auth';
 import { Plugins } from '@capacitor/core';
 

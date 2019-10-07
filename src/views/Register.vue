@@ -77,8 +77,7 @@ export default {
         loading.present();
         const user = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         
-  
-        await db.collection('users').add(
+        await db.collection('users').doc(user.user.uid).set(
           {name: this.name, 
            email: user.user.email,
            authId: user.user.uid,

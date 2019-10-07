@@ -30,7 +30,11 @@
 <script>
 // import { db } from '../db'
 import Storage from '../services/storage';
+import firebase from 'firebase';
+
 const storage = new Storage();
+export const db = firebase.firestore()
+export const user = firebase.auth().currentUser
 
 export default {
   name: 'SelectPledges',
@@ -40,12 +44,34 @@ export default {
     }
   },
   async created() {
-    this.pledges = await storage.get('selectedPledges');
+    
+    this.pledges = await storage.get('selectedPledges');    
   },
   methods: {
 
-    goToResults() {
+    async goToResults() {
+
+    const uid = user.uid;
+
+    const userPledges = this.pledges.map((plg, idx) => {
+      let key = `pledgeId_${idx+1}`;
+      let obj = {};
+
+      obj[key] =  plg.pledgeId
+    
+      return obj
+    })
+
+    const dbPledges = Object.assign(...userPledges);
+
+    try {
+      await db.collection(`users`).doc(uid).collection('userPledges').add(dbPledges);
       this.$router.push('/results');
+
+      } catch(err) {
+        console.error(err);
+      }
+
     },
    
     returnToPledges() {

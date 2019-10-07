@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">PledgeBall</string>
     <string name="title_activity_main">PledgeBall</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="fileprovider_authority">io.ionic.starter.fileprovider</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">io.genox.pledgeball</string>
+    <string name="fileprovider_authority">io.genox.pledgeball.fileprovider</string>
+    <string name="custom_url_scheme">io.genox.pledgeball</string>
 </resources>
