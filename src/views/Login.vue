@@ -73,8 +73,7 @@ import { cfaSignIn } from 'capacitor-firebase-auth';
 import { Plugins } from '@capacitor/core';
 
 const { Device } = Plugins;
-
-
+export const db = firebase.firestore()
 
 export default {
   name: 'Login',
@@ -139,10 +138,28 @@ export default {
         console.log('web')
       }     
     },
-    doSkip() {
+    async doSkip() {
       // TODO Create anon user
+      try {
+        const anonUser = await firebase.auth().signInAnonymously();
 
-      this.$router.push('/selectpledges');
+        console.log(anonUser);
+
+        await db.collection('users').doc(anonUser.user.uid).set(
+            {name: 'Anon', 
+            email: null,
+            authId: anonUser.user.uid,
+            isAnon: anonUser.user.isAnonymous
+            }
+        );
+
+        this.$router.push('/selectpledges');
+        } catch(err) {
+        
+        console.error(err);
+        alert(err.message)
+
+      }
 
     }
   },
