@@ -4,13 +4,16 @@ import { Bar } from 'vue-chartjs'
 export default  {
   name: 'BarPledges',
   extends: Bar,
-  mounted () {
+  props: {
+      pledges: Array
+    },
+  created () {
 
     const data = {
-        labels: ['Use Shampoo Bar', 'Recycled Toilet Paper', 'Home Energy Audit', 'Plant Some Trees', 'Use Milk Alternative', 'Cycle To Work'],
+        // labels: ['Use Shampoo Bar', 'Recycled Toilet Paper', 'Home Energy Audit', 'Plant Some Trees', 'Use Milk Alternative', 'Cycle To Work'],
         datasets: [{
-            label: '# of Pledges',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'CO2 Saved',
+            // data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -30,6 +33,16 @@ export default  {
             borderWidth: 1
         }]
     }
+
+    const labels = this.pledges.map(plg => {
+        return plg.pledgeName;
+    });
+
+    console.log(labels)
+
+    data.labels = labels;
+
+    console.log(data);
 
     const options =  {
         scales: {
