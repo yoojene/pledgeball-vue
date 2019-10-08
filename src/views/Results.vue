@@ -37,9 +37,13 @@ export default {
     BarPledges
   },
   mounted() {
-
     this.createChartData();
-   
+  },
+  beforeDestroy() {
+
+    // Also clear down db? 
+    this.datacollection = null
+    this.chartData = null
   },
   methods: {
     async createChartData() {
