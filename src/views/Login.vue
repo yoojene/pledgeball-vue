@@ -69,7 +69,7 @@
 <script>
 import firebase from 'firebase';
 import Register from './Register';
-import { cfaSignIn } from 'capacitor-firebase-auth';
+import { cfaSignIn, mapUserToUserInfo } from 'capacitor-firebase-auth';
 import { Plugins } from '@capacitor/core';
 
 const { Device } = Plugins;
@@ -119,8 +119,11 @@ export default {
     },
     doRegisterGoogle() {
       if (this.platform !== 'web') {
-       cfaSignIn('google.com').subscribe(
+       cfaSignIn('google.com').pipe(
+         mapUserToUserInfo(),
+         ).subscribe(
         (user) => {
+          console.log(user)
           console.log(user.displayName)
           }
       )
@@ -130,8 +133,11 @@ export default {
     },
     doRegisterFacebook() {
       if (this.platform !== 'web') {
-       cfaSignIn('facebook.com').subscribe(
+       cfaSignIn('facebook.com').pipe(
+         mapUserToUserInfo(),
+         ).subscribe(
         (user) => {
+          console.log(user)
           console.log(user.displayName)
           }
       )
