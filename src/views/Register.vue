@@ -81,6 +81,7 @@ export default {
           {name: this.name, 
            email: user.user.email,
            authId: user.user.uid,
+           isAnon: user.user.isAnonymous,
            }
         )
          this.$ionic.modalController.dismiss({success: true, regInfo: this.regInfo, fireUser: user, loading: loading})
