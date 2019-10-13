@@ -69,7 +69,7 @@
 <script>
 import firebase from 'firebase';
 import Register from './Register';
-import { cfaSignIn, mapUserToUserInfo } from 'capacitor-firebase-auth';
+// import { cfaSignIn, mapUserToUserInfo } from 'capacitor-firebase-auth';
 import { Plugins } from '@capacitor/core';
 
 const { Device } = Plugins;
@@ -118,31 +118,41 @@ export default {
     },
     doRegisterGoogle() {
       if (this.platform !== 'web') {
-       cfaSignIn('google.com').pipe(
-         mapUserToUserInfo(),
-         ).subscribe(
-        (user) => {
-          console.log(user)
-          console.log(user.displayName)
-          }
-      )
+      //  cfaSignIn('google.com').pipe(
+      //    mapUserToUserInfo(),
+      //    ).subscribe(
+      //   (user) => {
+      //     console.log(user)
+      //     console.log(user.displayName)
+      //     }
+      // )
       } else {
         console.log('web')
       }     
     },
-    doRegisterFacebook() {
-      if (this.platform !== 'web') {
-       cfaSignIn('facebook.com').pipe(
-         mapUserToUserInfo(),
-         ).subscribe(
-        (user) => {
-          console.log(user)
-          console.log(user.displayName)
-          }
-      )
-      } else {
-        console.log('web')
-      }     
+    async doRegisterFacebook() {
+
+      const fbProvider = new firebase.auth.FacebookAuthProvider();
+
+      try {
+
+        const fbSignIn = await firebase.auth().signInWithPopup(fbProvider)
+        
+        const token = fbSignIn.credential.accessToken;
+
+        // The signed-in user info.
+        const user = fbSignIn.user;
+
+        console.log(token);
+        console.log(user);
+
+      } catch(err) {
+
+        console.error(err);
+
+
+      }
+ 
     },
     async doSkip() {
       // TODO Create anon user
