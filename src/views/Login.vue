@@ -132,26 +132,28 @@ export default {
     },
     async doRegisterFacebook() {
 
-      const fbProvider = new firebase.auth.FacebookAuthProvider();
+      return;
 
-      try {
+      // const fbProvider = new firebase.auth.FacebookAuthProvider();
 
-        const fbSignIn = await firebase.auth().signInWithPopup(fbProvider)
+      // try {
+
+      //   const fbSignIn = await firebase.auth().signInWithPopup(fbProvider)
         
-        const token = fbSignIn.credential.accessToken;
+      //   const token = fbSignIn.credential.accessToken;
 
-        // The signed-in user info.
-        const user = fbSignIn.user;
+      //   // The signed-in user info.
+      //   const user = fbSignIn.user;
 
-        console.log(token);
-        console.log(user);
+      //   console.log(token);
+      //   console.log(user);
 
-      } catch(err) {
+      // } catch(err) {
 
-        console.error(err);
+      //   console.error(err);
 
 
-      }
+      // }
  
     },
     async doSkip() {
