@@ -1,0 +1,17 @@
+{
+  "appId": "io.genox.pledgeball",
+  "appName": "PledgeBall",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist",
+  "plugins": {
+    "CapacitorFirebaseAuth": {
+      "providers": [
+        "google.com",
+        "facebook.com"
+      ],
+      "languageCode": "en",
+      "nativeAuth": false
+    }
+  }
+}

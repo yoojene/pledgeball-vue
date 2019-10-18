@@ -94,8 +94,7 @@ export default {
   methods: {
     async doLogin() {
       try {
-        const user = await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-        console.log(user);
+        await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         this.$router.push('/selectpledges');
       } catch (err) {
         console.log(this.password)
