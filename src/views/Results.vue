@@ -48,58 +48,33 @@ export default {
   methods: {
     async createChartData() {
 
-      // Get userPledges IDs
+    // userPledges collection
     const userPledgesCol = await db.collection(`users`).doc(firebase.auth().currentUser.uid).collection('userPledges').get();
+    // pledges collection
     const pledgesCol = await db.collection(`pledges`).get();
 
+    // Get the userPledges
     const [userPledges] = userPledgesCol.docs.map(plg => {
       return plg.data();
     })
 
-    console.log(userPledges);
-
-    // console.log(pledgesCol);
-
+    // Get the pledges
     const pledges = pledgesCol.docs.map(plg => {
       return plg.data();
     })
-
-    console.log(pledges);
-
-    this.chartData = pledges.filter((fil, idx) => {
-      return fil.pledgeId = userPledges[`pledgeId_${idx+1}`]
-    })
-
-    console.log(this.chartData);
-
-// Single data object
-    // this.datacollection = {
-    //       labels: [],
-    //       datasets: [{
-    //         label: '',
-    //         data: [],
-    //         backgroundColor: ['rgba(255, 99, 132, 0.2)',
-    //             'rgba(54, 162, 235, 0.2)',
-    //             'rgba(255, 206, 86, 0.2)',
-    //             'rgba(75, 192, 192, 0.2)',]
-
-    //       }]
-    //     }
-
-    // console.log(this.datacollection);
-
-    // this.chartData.forEach(data => {
-    //   this.datacollection.labels.push(data.pledgeName);
-    //   this.datacollection.datasets[0].data.push(data.annualCO2Saved);
-    // });
-
-// Multiple datasets
+    
+    // Lookup the userPledges against pledges and collapse into single array
+    this.chartData = userPledges.pledgeIds.map((plg) => {
+      return pledges.filter(fil => plg === fil.pledgeId);
+    }).flat(); // .map() & .filter() returns an array of arrays so we use .flat()
+  
 
     this.datacollection = {
           label: 'Test',
           datasets: []
         }
 
+    // Build chart
     this.chartData.forEach(data => {
       this.datacollection.datasets.push(
         {
@@ -108,16 +83,6 @@ export default {
         "backgroundColor": [data.pledgeColour]
         })
     });
-
-    console.log(this.datacollection);
-
-
-    // Look up co2 saved from pledges collection
-
- 
-    // For each userPledge Id total up co2 saved
-    // Plot on graph
-
     },
     async share() {
       await Share.share({

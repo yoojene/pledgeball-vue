@@ -44,25 +44,27 @@ export default {
     }
   },
   async created() {
-    
-    this.pledges = await storage.get('selectedPledges');    
+      this.pledges = await storage.get('selectedPledges');    
   },
   methods: {
-
     async goToResults() {
 
     const uid = user.uid;
 
-    const userPledges = this.pledges.map((plg, idx) => {
-      let key = `pledgeId_${idx+1}`;
-      let obj = {};
+    /**
+    user/<id>/userPledges subcollection is an array of pledgeIds 
 
-      obj[key] =  plg.pledgeId
-    
-      return obj
+    i.e.  user/<uid>/userPledges/<upid>/pledgeIds/[0]45
+          user/<uid>/userPledges/<upid>/pledgeIds/[1]12
+          user/<uid>/userPledges/<upid>/pledgeIds/[2]25
+          ...
+    **/
+
+    const userPledges = this.pledges.map((plg) => {
+      return plg.pledgeId
     })
 
-    const dbPledges = Object.assign(...userPledges);
+    const dbPledges = {'pledgeIds': userPledges}
 
     try {
       await db.collection(`users`).doc(uid).collection('userPledges').add(dbPledges);
