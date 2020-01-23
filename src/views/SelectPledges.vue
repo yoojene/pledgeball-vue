@@ -14,17 +14,17 @@
   </ion-header>
   
   <ion-list class="ion-padding-top ion-padding-bottom">    
-    <ion-card v-for="pledge in this.pledges" v-bind:key="pledge.pledgeId">
+    <ion-card v-for="pledge in this.pledges" v-bind:key="pledge.Number">
     <ion-card-header>
        <ion-ripple-effect></ion-ripple-effect>
       <ion-item lines="none">
-      <ion-card-title>{{pledge.pledgeName}}</ion-card-title>
+      <ion-card-title>{{pledge.Description}}</ion-card-title>
      
         <ion-checkbox slot="start" v-on:ionChange="togglePledge(pledge, $event)"> </ion-checkbox>
       </ion-item>
     </ion-card-header>
     <ion-card-content>
-      <ion-button v-if="pledge.pledgeUrls" expand="block" color="secondary" @click="viewUrls(pledge.pledgeUrls)">
+      <ion-button v-if="pledge.UsefulURL" expand="block" color="secondary" @click="viewUrls(pledge.UsefulURL)">
       <ion-ripple-effect></ion-ripple-effect>
         More Info
       </ion-button>
@@ -46,6 +46,7 @@
 import { db } from '../db'
 import { Plugins } from '@capacitor/core';
 import Storage from '../services/storage';
+import axios from 'axios';
 
 const { Browser } = Plugins;
 const storage = new Storage();
@@ -58,6 +59,13 @@ export default {
       pledges: [],
       selectedPledges: []
     }
+  },
+
+  async mounted() {
+    axios.get('https://pledgeball.org/wp-json/pledgeapi/v1/pledgelist')
+    .then(res => {
+      this.pledges = res.data;     
+    });
   },
   async created() {
 
@@ -90,10 +98,10 @@ export default {
     }
 
   },
-  firestore: {
-    pledges: db.collection('pledges'),
+  // firestore: {
+  //   pledges: db.collection('pledges'),
 
-  },
+  // },
   props: {
 
   }

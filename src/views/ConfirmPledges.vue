@@ -10,7 +10,7 @@
   
   <ion-list class="ion-padding-top ion-padding-bottom">
     <ion-item v-for="pledge in this.pledges">
-      <ion-label class="ion-text-wrap">{{pledge.pledgeName}}</ion-label>
+      <ion-label class="ion-text-wrap">{{pledge.Description}}</ion-label>
     </ion-item>
   </ion-list>
    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
