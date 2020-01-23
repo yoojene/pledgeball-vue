@@ -26,7 +26,7 @@
         <div>
         <img src="../assets/pledgeball_title.jpg">
         </div>
-       <h1 class="underline">Welcome to PledgeBall</h1>
+       <h1>#PledgeBall</h1>
       </div> 
       </ion-slide>
       <ion-slide>
@@ -42,7 +42,7 @@
       </ion-slide>
       <ion-slide>
       <div class="ion-padding-top ion-padding-start ion-padding-end">
-        <img src="../assets/checklist.jpg"> <!--Designed by roserodionova / Freepik -->
+        <img class="pledgeball-trans" src="../assets/pledgeball_title.jpg"> <!--Designed by roserodionova / Freepik -->
       
         <h1>Use this app to make your Pledges</h1>
         <p>
@@ -85,4 +85,9 @@ export default {
  .swiper-pagination{ position: relative; }
  .intro-slides {top: 20%;}
  .swiper-container-horizontal>.swiper-pagination-bullets{bottom: 0px;}
+ .pledgeball-trans {opacity: 0.5;}
+ /* ion-content{
+
+    --ion-background-color:#180051;
+} */
 </style>
