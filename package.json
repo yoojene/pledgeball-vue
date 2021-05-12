@@ -13,7 +13,7 @@
     "@capacitor/ios": "1.2.1",
     "@ionic/core": "4.7.4",
     "@ionic/vue": "0.0.9",
-    "chart.js": "2.8.0",
+    "chart.js": "2.9.4",
     "core-js": "^2.6.5",
     "firebase": "6.6.0",
     "ionicons": "4.6.2",
