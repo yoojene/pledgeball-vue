@@ -25,7 +25,7 @@
     "vuefire": "2.1.2"
   },
   "devDependencies": {
-    "@capacitor/cli": "1.1.1",
+    "@capacitor/cli": "1.5.3",
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
